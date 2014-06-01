@@ -1,0 +1,33 @@
+From 6f4aeeb8d140c724146b9700d7ae5b97295a9f59 Mon Sep 17 00:00:00 2001
+From: stream <stream009@gmail.com>
+Date: Sun, 1 Jun 2014 16:52:19 +0900
+Subject: [PATCH] Omit test, example and experiment
+
+---
+ CMakeLists.txt | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cd6749b..4d11eab 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -82,12 +82,12 @@ if (Boost_FOUND)
+     include_directories(${Boost_INCLUDE_DIRS})
+     enable_testing()
+     add_subdirectory(libs/network/src)
+-    add_subdirectory(libs/network/test)
+-    add_subdirectory(libs/network/experiment)
++    #add_subdirectory(libs/network/test)
++    #add_subdirectory(libs/network/experiment)
+     if (NOT MSVC)
+-      add_subdirectory(libs/mime/test)
++	    #add_subdirectory(libs/mime/test)
+     endif(NOT MSVC)
+-    add_subdirectory(libs/network/example)
++    #add_subdirectory(libs/network/example)
+ endif(Boost_FOUND)
+ 
+ if (MSVC)
+-- 
+2.0.0
+

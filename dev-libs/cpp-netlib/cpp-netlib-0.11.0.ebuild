@@ -20,6 +20,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${P}-final"
 PATCHES=(
 	"${FILESDIR}/${P}-fix-typo.patch"
+	"${FILESDIR}/${P}-omit-test-example-experiment.patch"
 )
 
 src_configure() {
