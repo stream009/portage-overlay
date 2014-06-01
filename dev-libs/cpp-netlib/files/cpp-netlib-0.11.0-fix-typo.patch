@@ -1,0 +1,25 @@
+From 8f72d7660d629ee85463a652f632b9f27c3dd92b Mon Sep 17 00:00:00 2001
+From: stream <stream009@gmail.com>
+Date: Sun, 1 Jun 2014 14:43:42 +0900
+Subject: [PATCH] Fix typo
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 923457c..cd6749b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,7 +67,7 @@ elseif (${CMAKE_CXX_COMPILER_ID} MATCHES Clang)
+   else()
+     # We just add the -Wall and a high enough template depth
+     # flag for Clang in other systems.
+-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -ftemplate-dempth=256")
++    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -ftemplate-depth=256")
+   endif()
+ endif()
+ 
+-- 
+2.0.0
+

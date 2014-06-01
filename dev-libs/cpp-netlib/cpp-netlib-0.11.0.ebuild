@@ -18,9 +18,16 @@ DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.8"
 
 S="${WORKDIR}/${P}-final"
+PATCHES=(
+	"${FILESDIR}/${P}-fix-typo.patch"
+)
 
 src_configure() {
 	cmake-utils_src_configure
+}
+
+src_prepare() {
+	cmake-utils_src_prepare
 }
 
 src_install() {
