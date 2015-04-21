@@ -74,6 +74,7 @@ create_user-config.jam() {
 	fi
 
 	if python_bindings_needed; then
+		echo ${PYTHON}
 		python_configuration="using python : : ${PYTHON} ;"
 	fi
 
@@ -99,6 +100,12 @@ pkg_setup() {
 
 src_prepare() {
 	epatch \
+		"${FILESDIR}/${PN}-1.51.0-respect_python-buildid.patch" \
+		"${FILESDIR}/${PN}-1.51.0-support_dots_in_python-buildid.patch" \
+		"${FILESDIR}/${PN}-1.48.0-no_strict_aliasing_python2.patch" \
+		"${FILESDIR}/${PN}-1.48.0-disable_libboost_python3.patch" \
+		"${FILESDIR}/${PN}-1.48.0-python_linking.patch" \
+		"${FILESDIR}/${PN}-1.48.0-disable_icu_rpath.patch" \
 		"${FILESDIR}/${PN}-1.58.0-python-fopen.patch"
 
 	# Do not try to build missing 'wave' tool, bug #522682
@@ -141,9 +148,6 @@ src_configure() {
 	if use ppc || use ppc64; then
 		[[ $(gcc-version) > 4.3 ]] && append-flags -mno-altivec
 	fi
-
-	# Do _not_ use C++11 yet, make sure to force GNU C++ 98 standard.
-	append-cxxflags -std=gnu++98
 
 	use icu && OPTIONS+=" -sICU_PATH=${EPREFIX}/usr"
 	use icu || OPTIONS+=" --disable-icu boost.locale.icu=off"
