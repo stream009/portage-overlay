@@ -98,17 +98,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch \
-		"${FILESDIR}/${PN}-1.51.0-respect_python-buildid.patch" \
-		"${FILESDIR}/${PN}-1.51.0-support_dots_in_python-buildid.patch" \
-		"${FILESDIR}/${PN}-1.48.0-no_strict_aliasing_python2.patch" \
-		"${FILESDIR}/${PN}-1.48.0-disable_libboost_python3.patch" \
-		"${FILESDIR}/${PN}-1.48.0-python_linking.patch" \
-		"${FILESDIR}/${PN}-1.48.0-disable_icu_rpath.patch" \
-		"${FILESDIR}/${PN}-1.55.0-context-x32.patch" \
-		"${FILESDIR}/${PN}-1.55.0-tools-c98-compat.patch" \
-		"${FILESDIR}/${PN}-1.52.0-threads.patch"
-
 	# Do not try to build missing 'wave' tool, bug #522682
 	# Upstream bugreport - https://svn.boost.org/trac/boost/ticket/10507
 	sed -i -e 's:wave/build//wave::' tools/Jamfile.v2 || die
