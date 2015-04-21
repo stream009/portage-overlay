@@ -98,6 +98,9 @@ pkg_setup() {
 }
 
 src_prepare() {
+	epatch \
+		"${FILESDIR}/${PN}-1.58.0-python-fopen.patch"
+
 	# Do not try to build missing 'wave' tool, bug #522682
 	# Upstream bugreport - https://svn.boost.org/trac/boost/ticket/10507
 	sed -i -e 's:wave/build//wave::' tools/Jamfile.v2 || die
